@@ -21,6 +21,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.input.TextFieldValue
+import com.example.SoundScape_Android.app.screens.home.Home
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,13 +34,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color(0xFF191926)
                 ) {
-                    MyPage()
+                    Home().Home_Preview()
                 }
             }
         }
     }
 }
-@Composable
+/*@Composable
 fun SearchFieldWithIcons() {
     var text by remember { mutableStateOf(TextFieldValue("")) }
     return TextField(
@@ -50,8 +52,8 @@ fun SearchFieldWithIcons() {
         },
         placeholder = { Text(text = "Choose Destination") },
     )
-}
-
+}*/
+/*
 @Preview
 @Composable
 fun MyPage(
@@ -64,10 +66,9 @@ fun MyPage(
             Menu(name = name)
         }
     }
-}
-
-@Composable
-private fun Menu(name: String) {
+}*/
+/*@Composable
+fun Menu(name: String) {
     Surface(
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.padding(vertical = 0.dp, horizontal = 20.dp)
@@ -81,12 +82,13 @@ private fun Menu(name: String) {
             }
         }
     }
-}
+}*/
+
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     ComposableCodeLabTheme {
-        MyPage()
+        Home()
     }
 }
