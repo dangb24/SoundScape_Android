@@ -46,7 +46,6 @@ class Home {
                             .size(100.dp)
                             .padding(12.dp), contentAlignment = Alignment.Center) {
                             Text(text = item, textAlign = TextAlign.Center)
-
                         }
                     }
                 }
@@ -65,7 +64,7 @@ class Home {
         Column(modifier = Modifier) {
             SearchFieldWithIcons()
             for (name in names) {
-                Menu(name = name)
+                Menu(name = name, right_pad = 20, left_pad = 20)
             }
         }
         BottomMenu(bar = bar)
