@@ -10,16 +10,16 @@ import com.example.SoundScape_Android.app.screens.composable.Top_Bar
 class PlacesNearby {
     @Preview
     @Composable
-    fun PlacesNearby_Screen(
+    fun placesNearby(
         modifier: Modifier = Modifier,
         name: String = "Places Nearby",
         menu: List<String> = listOf("All Places", "Public Transit", "Food & Drink", "Things to Do", "Groceries & Convenience Stores", "Bank & ATMs")
 
     ){
         Top_Bar(name = name)
-//        for (item in menu){
-//            Menu(name = item, right_pad = 0, left_pad = 50)
-//        }
+        for (item in menu){
+//            Menu(name = , screen = , navController = , right_pad = , left_pad = )
+        }
         
     }
 }

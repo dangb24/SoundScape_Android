@@ -16,10 +16,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 
 @Composable
-    fun Menu(name: String, right_pad: Int, left_pad: Int) {
+    fun Menu(name: String, screen: String, navController: NavController, right_pad: Int, left_pad: Int) {
         Surface(
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(start = right_pad.dp, end = left_pad.dp)
@@ -32,7 +33,7 @@ import androidx.compose.ui.unit.sp
                     .padding(vertical = 10.dp)) {
                     Text(text = name, fontSize = 20.sp)
                 }
-                IconButton(onClick = { /* doSomething() */ }) {
+                IconButton(onClick = { navController.navigate(screen)}) {
                     Icon(Icons.Outlined.KeyboardArrowRight, contentDescription = "Localized description")
                 }
             }

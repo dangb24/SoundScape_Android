@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.SoundScape_Android.*
 import com.example.SoundScape_Android.app.screens.composable.Menu
+import androidx.navigation.NavController
 
 class Home {
     @Composable
@@ -59,12 +60,14 @@ class Home {
     fun Home_Preview(
         modifier: Modifier = Modifier,
         names: List<String> = listOf("Places Nearby", "Markers & Routes", "Current Location"),
-        bar: List<String> = listOf("My Location", "Around Me", "Ahead of Me", "Nearby Markers")
+        bar: List<String> = listOf("My Location", "Around Me", "Ahead of Me", "Nearby Markers"),
+        route: List<String> = listOf(Routes.Places_Nearby,Routes.Markers_Routes, Routes.Location_Details),
+        navController: NavController
     ) {
         Column(modifier = Modifier) {
             SearchFieldWithIcons()
-            for (name in names) {
-                Menu(name = name, right_pad = 20, left_pad = 20)
+            for (i in 0..2) {
+                Menu(name = names[i], screen=route[i], navController = navController, right_pad = 20, left_pad = 20)
             }
         }
         BottomMenu(bar = bar)
