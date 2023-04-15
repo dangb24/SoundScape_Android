@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
-
+import androidx.navigation.NavController
 
     @Composable
-    fun Menu(name: String) {
+    fun Menu(name: String, screen: String, navController: NavController) {
         Surface(
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(vertical = 0.dp, horizontal = 20.dp)
@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
                 Column(modifier = Modifier.weight(1F).padding(vertical = 12.dp)) {
                     Text(text = name)
                 }
-                IconButton(onClick = { /* doSomething() */ }) {
+                IconButton(onClick = { navController.navigate(screen)}) {
                     Icon(Icons.Outlined.KeyboardArrowRight, contentDescription = "Localized description")
                 }
             }
