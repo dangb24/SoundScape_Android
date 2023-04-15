@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color(0xFF191926)
                 ) {
-                    Home().Home_Preview()
+                    Navigation()
                 }
             }
         }
@@ -45,6 +45,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     ComposableCodeLabTheme {
-        Home().Home_Preview()
+        Navigation()
     }
 }
