@@ -20,8 +20,8 @@ import androidx.compose.ui.unit.dp
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(vertical = 0.dp, horizontal = 20.dp)
         ) {
-            Row(modifier = Modifier.border(width = 1.dp, color = Color(0xFF2A3C5F), shape = RectangleShape).padding(10.dp)) {
-                Column(modifier = Modifier.weight(1F).padding(vertical = 10.dp)) {
+            Row(modifier = Modifier.border(width = 1.dp, color = Color(0xFF2A3C5F), shape = RectangleShape).padding(horizontal = 10.dp, vertical = 6.dp)) {
+                Column(modifier = Modifier.weight(1F).padding(vertical = 12.dp)) {
                     Text(text = name)
                 }
                 IconButton(onClick = { /* doSomething() */ }) {

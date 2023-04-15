@@ -40,55 +40,11 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-/*@Composable
-fun SearchFieldWithIcons() {
-    var text by remember { mutableStateOf(TextFieldValue("")) }
-    return TextField(
-        modifier = Modifier.padding(vertical = 70.dp, horizontal = 20.dp).fillMaxWidth(),
-        value = text,
-        leadingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = "searchIcon") },
-        onValueChange = {
-            text = it
-        },
-        placeholder = { Text(text = "Choose Destination") },
-    )
-}*/
-/*
-@Preview
-@Composable
-fun MyPage(
-    modifier: Modifier = Modifier,
-    names: List<String> = listOf("Places Nearby", "Markers & Routes", "Current Location")
-) {
-    Column(modifier = Modifier) {
-        SearchFieldWithIcons()
-        for (name in names) {
-            Menu(name = name)
-        }
-    }
-}*/
-/*@Composable
-fun Menu(name: String) {
-    Surface(
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.padding(vertical = 0.dp, horizontal = 20.dp)
-    ) {
-        Row(modifier = Modifier.border(width = 1.dp, color = Color(0xFF2A3C5F), shape = RectangleShape).padding(10.dp)) {
-            Column(modifier = Modifier.weight(1F).padding(vertical = 10.dp)) {
-                Text(text = name)
-            }
-            IconButton(onClick = { /* doSomething() */ }) {
-                Icon(Icons.Outlined.KeyboardArrowRight, contentDescription = "Localized description")
-            }
-        }
-    }
-}*/
-
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     ComposableCodeLabTheme {
-        Home()
+        Home().Home_Preview()
     }
 }
