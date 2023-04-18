@@ -37,7 +37,7 @@ fun Navigation(){
             MarkersRoutes().markersRoutes()
         }
         composable(Routes.Places_Nearby){
-            PlacesNearby().placesNearby()
+            PlacesNearby().placesNearby(navController = navController)
         }
     }
 }

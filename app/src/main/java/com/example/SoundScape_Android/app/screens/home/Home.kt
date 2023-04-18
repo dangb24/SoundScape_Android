@@ -1,5 +1,6 @@
 package com.example.SoundScape_Android.app.screens.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -7,6 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,25 +35,29 @@ class Home {
     }
     @Composable
     fun BottomMenu(bar: List<String>){
-        Surface(
-            modifier = Modifier.padding(top = 525.dp),
-            color = MaterialTheme.colorScheme.primary
-        ) {
-            Row(modifier = Modifier.padding(12.dp)){
-                Text("HEAR MY SURROUNDINGS")
-            }
-            Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom){
-                for (item in bar) {
-                    Column(modifier = Modifier) {
-                        Box(modifier = Modifier
-                            .size(100.dp)
-                            .padding(12.dp), contentAlignment = Alignment.Center) {
-                            Text(text = item, textAlign = TextAlign.Center)
-                        }
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .background(color = MaterialTheme.colorScheme.primary)
+            .padding(10.dp)
+        )
+        {
+            Text("HEAR MY SURROUNDINGS", color = Color.White)
+
+        }
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .background(color = MaterialTheme.colorScheme.primary),
+            verticalAlignment = Alignment.Bottom)
+        {
+            for (item in bar) {
+                Column(modifier = Modifier) {
+                    Box(modifier = Modifier
+                        .size(100.dp)
+                        .padding(12.dp), contentAlignment = Alignment.Center) {
+                        Text(text = item, textAlign = TextAlign.Center, color = Color.White)
                     }
                 }
             }
-
         }
     }
 
@@ -64,12 +70,13 @@ class Home {
         route: List<String> = listOf(Routes.Places_Nearby,Routes.Markers_Routes, Routes.Location_Details),
         navController: NavController
     ) {
-        Column(modifier = Modifier) {
+        Column(modifier = Modifier, verticalArrangement = Arrangement.SpaceBetween) {
             SearchFieldWithIcons()
             for (i in 0..2) {
                 Menu(name = names[i], screen=route[i], navController = navController, right_pad = 20, left_pad = 20)
             }
+            Spacer(modifier = Modifier.weight(1F))
+            BottomMenu(bar = bar)
         }
-        BottomMenu(bar = bar)
     }
 }
