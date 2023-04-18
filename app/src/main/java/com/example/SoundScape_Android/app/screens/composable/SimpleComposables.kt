@@ -40,7 +40,7 @@ import androidx.navigation.NavController
         }
     }
 @Composable
-    fun Top_Bar(name: String){
+    fun Top_Bar(name: String, route: String, navController: NavController){
         Surface(
             color = Color(0xFF374A77),
             modifier = Modifier
@@ -49,7 +49,7 @@ import androidx.navigation.NavController
                 .fillMaxWidth()
                 .padding(vertical = 10.dp), verticalAlignment = Alignment.Top){
                 Column(modifier = Modifier.padding(top = 20.dp)){
-                        IconButton(onClick = { /* doSomething() */ }) {
+                        IconButton(onClick = { navController.navigate(route) }) {
                             Icon(Icons.Outlined.KeyboardArrowLeft, contentDescription = "Localized description", modifier = Modifier.size(80.dp), tint = Color(0xFFFFFFFF))
                         }
                 }
