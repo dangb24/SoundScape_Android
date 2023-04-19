@@ -35,7 +35,8 @@ class Home {
     fun BottomMenu(bar: List<String>){
         Surface(
             modifier = Modifier.padding(top = 525.dp),
-            color = MaterialTheme.colorScheme.primary
+            color = MaterialTheme.colorScheme.primary,
+            
         ) {
             Row(modifier = Modifier.padding(12.dp)){
                 Text("HEAR MY SURROUNDINGS")
@@ -55,13 +56,12 @@ class Home {
         }
     }
 
-    @Preview
     @Composable
     fun Home_Preview(
         modifier: Modifier = Modifier,
         names: List<String> = listOf("Places Nearby", "Markers & Routes", "Current Location"),
         bar: List<String> = listOf("My Location", "Around Me", "Ahead of Me", "Nearby Markers"),
-        route: List<String> = listOf(Routes.Places_Nearby,Routes.Markers_Routes, Routes.Location_Details),
+        route: List<String> = listOf(Routes.Places_Nearby,Routes.Markers, Routes.Location_Details),
         navController: NavController
     ) {
         Column(modifier = Modifier) {

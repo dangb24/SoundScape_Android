@@ -14,18 +14,18 @@ import com.example.SoundScape_Android.Routes
 import com.example.SoundScape_Android.app.screens.composable.Top_Bar
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import com.example.SoundScape_Android.R
 
 
 class MarkersRoutes {
     @Composable
-    fun markersRoutes(
+    fun markers(
         bar: List<String> = listOf("Markers", "Routes"),
         name: String = "Markers & Routes",
         navController : NavController
-
     ){
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Top_Bar(name = name, route = Routes.HomeScreen, navController = navController)
@@ -48,20 +48,79 @@ class MarkersRoutes {
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.weight(1F))
-            BottomMenu(bar = bar)
+            BottomMenu(bar = bar, navController=navController)
         }
 
     }
     @Composable
-    fun BottomMenu(bar: List<String>){
+    fun routes(
+        bar: List<String> = listOf("Markers", "Routes"),
+        name: String = "Markers & Routes",
+        navController : NavController
+    ){
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Top_Bar(name = name, route = Routes.HomeScreen, navController = navController)
+            Image(
+                painter = painterResource(id = R.drawable.routes),
+                contentDescription = null,
+                modifier = Modifier.padding(top= 50.dp, bottom = 20.dp),
+                colorFilter = ColorFilter.tint(color = Color.White)
 
-            Row(modifier = Modifier.fillMaxWidth().background(color = MaterialTheme.colorScheme.primary), verticalAlignment = Alignment.Bottom){
+            )
+            Text("Getting Started with Route Waypoints",
+                color = Color.White,
+                textAlign = TextAlign.Center,
+                fontSize = 30.sp
+            )
+            Text(
+                "Create a route for yourself or for someone else by organizing a set of markers as waypoints" +
+                        " on a route.\n\tWhile out on your route with Soundscape, you will be informed on arrival" +
+                        " to each waypoint, and the Audio Beacon will automatically advance to the next waypoint.",
+                color = Color.White,
+                textAlign = TextAlign.Center
+            )
+            Spacer(modifier = Modifier.weight(1F))
+            BottomMenu(bar = bar, navController=navController)
+        }
+
+    }
+    @Composable
+    fun BottomMenu(bar: List<String>, navController: NavController){
+            Row(modifier = Modifier
+                .fillMaxWidth()
+                .background(color = MaterialTheme.colorScheme.primary), verticalAlignment = Alignment.Bottom){
                 for (item in bar) {
-                    Column(modifier = Modifier) {
+                    Row(modifier = Modifier.padding(start =50.dp, end=50.dp)) {
                         Box(modifier = Modifier
                             .size(100.dp)
-                            .padding(12.dp), contentAlignment = Alignment.Center) {
-                            Text(text = item, textAlign = TextAlign.Center)
+                            .padding(12.dp), contentAlignment = Alignment.Center ) {
+                            Column() {
+                                if (item=="Markers") {
+                                    Image(
+                                        modifier = Modifier
+                                            .size(50.dp)
+                                            .clickable {
+                                                navController.navigate(Routes.Markers)
+                                            },
+                                        painter = painterResource(id = R.drawable.location_marker),
+                                        contentDescription = null
+                                    )
+                                }
+                                else{
+                                    Image(
+                                        modifier = Modifier
+                                            .size(50.dp)
+                                            .clickable {
+                                                navController.navigate(Routes.Routes)
+                                            },
+                                        painter = painterResource(id = R.drawable.routes),
+                                        colorFilter= ColorFilter.tint(color = Color.White),
+                                        contentDescription = null
+                                    )
+                                }
+                                Text(text = item, textAlign = TextAlign.Center, color = Color.White)
+                            }
+
                         }
                     }
                 }
