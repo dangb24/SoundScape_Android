@@ -31,7 +31,7 @@ fun Navigation(){
             Home().Home_Preview(navController = navController)
         }
         composable(Routes.Location_Details){
-            LocationDetails().locationDetails()
+            LocationDetails().locationDetails(navController = navController)
         }
         composable(Routes.Markers){
             MarkersRoutes().markers(navController = navController)

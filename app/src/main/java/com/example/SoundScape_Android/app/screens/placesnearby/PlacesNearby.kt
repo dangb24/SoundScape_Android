@@ -20,7 +20,7 @@ class PlacesNearby {
 
 
     ){
-        Top_Bar(name = name)
+        Top_Bar(name = name, navController = navController, route= Routes.HomeScreen)
         for (item in menu){
             Menu(name = item, screen = Routes.HomeScreen, navController = navController, right_pad = 50, left_pad = 0)
         }
