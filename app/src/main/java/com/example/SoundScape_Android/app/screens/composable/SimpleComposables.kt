@@ -1,6 +1,5 @@
 package com.example.SoundScape_Android.app.screens.composable
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.padding
@@ -22,23 +21,26 @@ import androidx.navigation.NavController
 
 @Composable
     fun Menu(name: String, screen: String, navController: NavController, right_pad: Int, left_pad: Int) {
-        Row(modifier = Modifier
-            .padding(start = right_pad.dp, end = left_pad.dp)
-            .background(color = MaterialTheme.colorScheme.primary)
-            .border(width = 1.dp, color = Color(0xFF2A3C5F), shape = RectangleShape)
-            .padding(horizontal = 10.dp, vertical = 5.dp)) {
-            Column(modifier = Modifier
-                .weight(1F)
-                .padding(vertical = 10.dp)) {
-                Text(text = name, fontSize = 20.sp, color = Color.White)
+        Surface(
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(start = right_pad.dp, end = left_pad.dp)
+        ) {
+            Row(modifier = Modifier
+                .border(width = 1.dp, color = Color(0xFF2A3C5F), shape = RectangleShape)
+                .padding(horizontal = 10.dp, vertical = 5.dp)) {
+                Column(modifier = Modifier
+                    .weight(1F)
+                    .padding(vertical = 10.dp)) {
+                    Text(text = name, fontSize = 20.sp)
                 }
-            IconButton(onClick = { navController.navigate(screen)}) {
-                Icon(Icons.Outlined.KeyboardArrowRight, contentDescription = "Localized description", tint = Color.White)
+                IconButton(onClick = { navController.navigate(screen)}) {
+                    Icon(Icons.Outlined.KeyboardArrowRight, contentDescription = "Localized description")
+                }
             }
         }
     }
 @Composable
-    fun Top_Bar(name: String){
+    fun Top_Bar(name: String, route: String, navController: NavController){
         Surface(
             color = Color(0xFF374A77),
             modifier = Modifier
@@ -47,8 +49,8 @@ import androidx.navigation.NavController
                 .fillMaxWidth()
                 .padding(vertical = 10.dp), verticalAlignment = Alignment.Top){
                 Column(modifier = Modifier.padding(top = 20.dp)){
-                        IconButton(onClick = { /* doSomething() */ }) {
-                            Icon(Icons.Outlined.KeyboardArrowLeft, contentDescription = "Localized description", modifier = Modifier.size(80.dp), tint = Color.White)
+                        IconButton(onClick = { navController.navigate(route) }) {
+                            Icon(Icons.Outlined.KeyboardArrowLeft, contentDescription = "Localized description", modifier = Modifier.size(80.dp), tint = Color(0xFFFFFFFF))
                         }
                 }
                 Column(modifier = Modifier.padding(top = 28.dp), verticalArrangement = Arrangement.Center) {

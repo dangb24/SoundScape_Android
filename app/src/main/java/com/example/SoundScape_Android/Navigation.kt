@@ -1,20 +1,20 @@
 package com.example.SoundScape_Android
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.SoundScape_Android.app.screens.locationdetails.LocationDetails
-import com.example.SoundScape_Android.app.screens.markersroutes.MarkersRoutes
 import androidx.navigation.compose.rememberNavController
 import com.example.SoundScape_Android.app.screens.home.Home
+import com.example.SoundScape_Android.app.screens.markersroutes.MarkersRoutes
 import com.example.SoundScape_Android.app.screens.placesnearby.PlacesNearby
 
 
 object Routes{
         const val HomeScreen = "home"
         const val Location_Details = "location_details"
-        const val Markers_Routes = "markers_routes"
+        const val Markers = "markers"
+        const val Routes = "routes"
         const val Places_Nearby = "places_nearby"
 
 }
@@ -33,8 +33,11 @@ fun Navigation(){
         composable(Routes.Location_Details){
             LocationDetails().locationDetails()
         }
-        composable(Routes.Markers_Routes){
-            MarkersRoutes().markersRoutes()
+        composable(Routes.Markers){
+            MarkersRoutes().markers(navController = navController)
+        }
+        composable(Routes.Routes){
+            MarkersRoutes().routes(navController = navController)
         }
         composable(Routes.Places_Nearby){
             PlacesNearby().placesNearby(navController = navController)
