@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -31,10 +32,12 @@ import androidx.navigation.NavController
                 Column(modifier = Modifier
                     .weight(1F)
                     .padding(vertical = 10.dp)) {
-                    Text(text = name, fontSize = 20.sp)
+                    Text(text = name, fontSize = 18.sp)
                 }
-                IconButton(onClick = { navController.navigate(screen)}) {
-                    Icon(Icons.Outlined.KeyboardArrowRight, contentDescription = "Localized description")
+                Column(modifier = Modifier){
+                    IconButton(onClick = { navController.navigate(screen)}) {
+                        Icon(Icons.Outlined.KeyboardArrowRight, contentDescription = "Localized description")
+                    }
                 }
             }
         }
