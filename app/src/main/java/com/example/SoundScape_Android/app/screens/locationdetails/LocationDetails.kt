@@ -1,25 +1,21 @@
 package com.example.SoundScape_Android.app.screens.locationdetails
 
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Navigation
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.outlined.AddLocation
-import androidx.compose.material.icons.outlined.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.material3.*
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -27,7 +23,7 @@ import com.example.SoundScape_Android.Routes
 import com.example.SoundScape_Android.app.screens.composable.Top_Bar
 import com.google.maps.android.compose.GoogleMap
 
-class LocationDetails {
+class LocationDetails() {
     @Composable
     fun locationDetails(
         name: String = "Location Details",
@@ -44,17 +40,30 @@ class LocationDetails {
                 modifier = Modifier.padding(start= 20.dp, top=30.dp, bottom=20.dp)
             )
             Row() {
+                Icon(
+                    Icons.Filled.Map,
+                    contentDescription = "Localized description",
+                    tint = Color.Yellow,
+                    modifier = Modifier.padding(start=20.dp)
+                )
+
                 Text("0m",
                     color = Color.Yellow,
                     fontSize = 20.sp,
-                    modifier = Modifier.padding(start=20.dp)
+                    modifier = Modifier.padding(start=10.dp)
                 )
             }
             Row() {
+                Icon(
+                    Icons.Filled.LocationOn,
+                    contentDescription = "Localized description",
+                    tint = Color(0XFFa0cbe1),
+                    modifier = Modifier.padding(start=20.dp, top=20.dp)
+                )
                 Text("Near Sage Ave, Troy NY 12180",
                     color = Color(0XFFa0cbe1),
                     fontSize = 20.sp,
-                    modifier = Modifier.padding(20.dp)
+                    modifier = Modifier.padding(top=20.dp, start = 10.dp)
                 )
             }
             for(i in names) {
