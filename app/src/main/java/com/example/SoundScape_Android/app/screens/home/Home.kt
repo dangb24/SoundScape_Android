@@ -3,12 +3,13 @@ package com.example.SoundScape_Android.app.screens.home
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,6 +36,9 @@ class Home {
     }
     @Composable
     fun BottomMenu(bar: List<String>){
+
+        val icons = listOf(Icons.Default.MyLocation, Icons.Default.ZoomOutMap, Icons.Default.Radar, Icons.Default.WhereToVote)
+
         Row(modifier = Modifier
             .fillMaxWidth()
             .background(color = MaterialTheme.colorScheme.primary)
@@ -46,22 +50,24 @@ class Home {
         }
         Row(modifier = Modifier
             .fillMaxWidth()
-            .background(color = MaterialTheme.colorScheme.primary),
-            verticalAlignment = Alignment.Bottom)
+            .background(color = MaterialTheme.colorScheme.primary)
+            .padding(vertical = 20.dp),
+            verticalAlignment = Alignment.Bottom,
+            horizontalArrangement = Arrangement.SpaceEvenly
+        )
         {
-            for (item in bar) {
-                Column(modifier = Modifier) {
-                    Box(modifier = Modifier
-                        .size(100.dp)
-                        .padding(12.dp), contentAlignment = Alignment.Center) {
-                        Text(text = item, textAlign = TextAlign.Center, color = Color.White)
+            for (i in 0..3) {
+                Column(modifier = Modifier.size(82.dp)) {
+                    Box(modifier = Modifier.padding(horizontal = 30.dp).size(40.dp), contentAlignment = Alignment.Center){
+                        Icon(icons[i], contentDescription = "none", tint = Color.White)
                     }
+                    Text(text = bar[i], textAlign = TextAlign.Center, color = Color.White)
                 }
             }
         }
     }
 
-    @Preview
+
     @Composable
     fun Home_Preview(
         modifier: Modifier = Modifier,
