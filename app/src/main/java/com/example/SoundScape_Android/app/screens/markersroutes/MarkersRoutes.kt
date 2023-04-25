@@ -65,7 +65,6 @@ class MarkersRoutes {
                 contentDescription = null,
                 modifier = Modifier.padding(top= 50.dp, bottom = 20.dp),
                 colorFilter = ColorFilter.tint(color = Color.White)
-
             )
             Text("Getting Started with Route Waypoints",
                 color = Color.White,
